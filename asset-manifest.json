@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kirkja/static/css/main.e6a92426.css",
+    "main.js": "/kirkja/static/js/main.b80bd61a.js",
+    "index.html": "/kirkja/index.html",
+    "main.e6a92426.css.map": "/kirkja/static/css/main.e6a92426.css.map",
+    "main.b80bd61a.js.map": "/kirkja/static/js/main.b80bd61a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6a92426.css",
+    "static/js/main.b80bd61a.js"
+  ]
+}
