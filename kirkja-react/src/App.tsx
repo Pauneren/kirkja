@@ -12,11 +12,12 @@ import Athafnir from './components/Athafnir';
 import Aeskulydsstarf from './components/Aeskulydsstarf';
 import Safnadarstarf from './components/Safnadarstarf';
 import Fermingar from './components/Fermingar';
+import Admin from './components/Admin';
 import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/kirkja">
       <div className="App">
         <Header />
         <Routes>
@@ -31,6 +32,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/olafskirkja" element={<Olafskirkja />} />
           <Route path="/ingjalsholskirkja" element={<Ingjalsholskirkja />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
         <footer>
           <p>© 2026 Olafskirkja og Ingjalsholskirkja</p>

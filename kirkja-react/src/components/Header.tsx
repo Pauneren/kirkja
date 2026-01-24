@@ -39,7 +39,7 @@ const Header: React.FC = () => {
     <header>
       <div className="header-content">
         <Link to="/" className="header-logo-link">
-          <img src="/images/cruz-logo.png" alt="Church Logo" className="header-logo" />
+          <img src="/kirkja/images/cruz-logo.png" alt="Church Logo" className="header-logo" />
         </Link>
         <h1>Olafskirkja og Ingjalsholskirkja</h1>
       </div>

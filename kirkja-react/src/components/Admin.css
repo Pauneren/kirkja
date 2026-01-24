@@ -1,0 +1,259 @@
+/* Admin Page Styles */
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Lato', sans-serif;
+}
+
+.admin-container h1 {
+  color: #1e3a5f;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  border-bottom: 3px solid #d4af37;
+  padding-bottom: 1rem;
+}
+
+.admin-loading {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.5rem;
+  color: #1e3a5f;
+}
+
+/* Tabs */
+.admin-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 0;
+}
+
+.admin-tabs button {
+  background: none;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  color: #2c3e50;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.admin-tabs button:hover {
+  color: #1e3a5f;
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.admin-tabs button.active {
+  color: #1e3a5f;
+  border-bottom-color: #d4af37;
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Tab Content */
+.admin-tab-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.admin-tab-content h2 {
+  color: #1e3a5f;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 0.5rem;
+}
+
+/* Forms */
+.admin-form {
+  background: #faf8f3;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+  border-left: 4px solid #d4af37;
+}
+
+.admin-form h3 {
+  color: #1e3a5f;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #1e3a5f;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #d4af37;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Buttons */
+.admin-btn {
+  background: #d4af37;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 500;
+}
+
+.admin-btn:hover {
+  background: #b8941f;
+}
+
+.admin-btn.delete {
+  background: #dc3545;
+}
+
+.admin-btn.delete:hover {
+  background: #c82333;
+}
+
+/* Lists */
+.admin-list {
+  background: #faf8f3;
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid #d4af37;
+}
+
+.admin-list h3 {
+  color: #1e3a5f;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.admin-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 3px solid #1e3a5f;
+}
+
+.admin-item div {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.admin-item strong {
+  color: #1e3a5f;
+  font-size: 1.1rem;
+}
+
+.admin-item em {
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-container {
+    padding: 1rem;
+  }
+  
+  .admin-tabs {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .admin-tabs button {
+    border-bottom: 1px solid #d4af37;
+    border-radius: 0;
+  }
+  
+  .admin-tabs button.active {
+    border-bottom-color: #d4af37;
+  }
+  
+  .admin-tab-content {
+    padding: 1rem;
+  }
+  
+  .admin-form,
+  .admin-list {
+    padding: 1rem;
+  }
+  
+  .admin-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .admin-item .admin-btn {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 430px) {
+  .admin-container h1 {
+    font-size: 2rem;
+  }
+  
+  .admin-tab-content h2,
+  .admin-form h3,
+  .admin-list h3 {
+    font-size: 1.1rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .admin-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .admin-item {
+    padding: 1rem;
+  }
+  
+  .admin-item strong {
+    font-size: 1rem;
+  }
+}

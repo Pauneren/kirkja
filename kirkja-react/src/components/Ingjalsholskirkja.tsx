@@ -5,7 +5,7 @@ const Ingjalsholskirkja: React.FC = () => {
   return (
     <main className="church-detail">
       <section className="church-hero">
-        <img src="/images/ingjaldsholkirkja.jpg" alt="Ingjalsholskirkja" className="church-hero-image" />
+        <img src="/kirkja/images/ingjaldsholkirkja.jpg" alt="Ingjalsholskirkja" className="church-hero-image" />
         <div className="church-hero-content">
           <h2>Ingjalsholskirkja</h2>
           <p>Ingjalshöll</p>
