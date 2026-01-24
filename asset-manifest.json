@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/kirkja/static/css/main.74598a9b.css",
+    "main.css": "/kirkja/static/css/main.41855e5d.css",
     "main.js": "/kirkja/static/js/main.10965c6c.js",
     "index.html": "/kirkja/index.html",
-    "main.74598a9b.css.map": "/kirkja/static/css/main.74598a9b.css.map",
+    "main.41855e5d.css.map": "/kirkja/static/css/main.41855e5d.css.map",
     "main.10965c6c.js.map": "/kirkja/static/js/main.10965c6c.js.map"
   },
   "entrypoints": [
-    "static/css/main.74598a9b.css",
+    "static/css/main.41855e5d.css",
     "static/js/main.10965c6c.js"
   ]
 }
