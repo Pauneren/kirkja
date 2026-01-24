@@ -18,6 +18,7 @@ interface Event {
   date: string;
   location: string;
   type: string;
+  imageUrl?: string;
   createdAt: string;
 }
 
@@ -50,7 +51,8 @@ const Admin: React.FC = () => {
     description: '',
     date: '',
     location: '',
-    type: ''
+    type: '',
+    imageUrl: ''
   });
 
   const [newsForm, setNewsForm] = useState({
@@ -60,7 +62,7 @@ const Admin: React.FC = () => {
   });
 
   // API base URL
-  const API_BASE = 'http://localhost:3002/api';
+  const API_BASE = 'http://localhost:3001/api';
 
   // Fetch data
   useEffect(() => {
@@ -140,7 +142,7 @@ const Admin: React.FC = () => {
       });
       const newEvent = await response.json();
       setEvents([...events, newEvent]);
-      setEventForm({ title: '', description: '', date: '', location: '', type: '' });
+      setEventForm({ title: '', description: '', date: '', location: '', type: '', imageUrl: '' });
     } catch (error) {
       console.error('Error adding event:', error);
     }
@@ -348,6 +350,15 @@ const Admin: React.FC = () => {
                 value={eventForm.type}
                 onChange={(e) => setEventForm({...eventForm, type: e.target.value})}
                 required
+              />
+            </div>
+            <div className="form-group">
+              <label>Mynd URL (valfrjáls):</label>
+              <input 
+                type="text" 
+                value={eventForm.imageUrl}
+                onChange={(e) => setEventForm({...eventForm, imageUrl: e.target.value})}
+                placeholder="/images/mynd.jpg"
               />
             </div>
             <button type="submit" className="admin-btn">Bæta við</button>

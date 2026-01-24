@@ -17,7 +17,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router basename="/kirkja">
+    <Router>
       <div className="App">
         <Header />
         <Routes>
