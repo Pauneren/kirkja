@@ -43,7 +43,24 @@ const Homepage: React.FC = () => {
         <h2>Helgihald á sunnudögum</h2>
         <p>Í Olafskirkju og Ingjalsholskirkju</p>
       </section>
-
+      <section className="churches">
+        <h3>Sóknir</h3>
+        <div className="church-grid">
+          <div className="church-card">
+            <img src="/images/olafsvikurkirkja.jpg" alt="Olafskirkja" className="church-image" />
+            <h4>Olafskirkja</h4>
+            <p>Ólafsvík</p>
+            <Link to="/olafskirkja" onClick={() => handleLinkClick('olafskirkja-card')}>Nánar um sókn</Link>
+          </div>
+          
+          <div className="church-card">
+            <img src="/images/ingjaldsholkirkja.jpg" alt="Ingjalsholskirkja" className="church-image" />
+            <h4>Ingjalsholskirkja</h4>
+            <p>Ingjalshöll</p>
+            <Link to="/ingjalsholskirkja" onClick={() => handleLinkClick('ingjalsholskirkja-card')}>Nánar um sókn</Link>
+          </div>
+        </div>
+      </section>
       {/* Dynamic Announcements */}
       {personalizedContent.announcements.length > 0 && (
         <section className="dynamic-announcements">
@@ -94,24 +111,7 @@ const Homepage: React.FC = () => {
         </section>
       )}
       
-      <section className="churches">
-        <h3>Sóknir</h3>
-        <div className="church-grid">
-          <div className="church-card">
-            <img src="/images/olafsvikurkirkja.jpg" alt="Olafskirkja" className="church-image" />
-            <h4>Olafskirkja</h4>
-            <p>Ólafsvík</p>
-            <Link to="/olafskirkja" onClick={() => handleLinkClick('olafskirkja-card')}>Nánar um sókn</Link>
-          </div>
-          
-          <div className="church-card">
-            <img src="/images/ingjaldsholkirkja.jpg" alt="Ingjalsholskirkja" className="church-image" />
-            <h4>Ingjalsholskirkja</h4>
-            <p>Ingjalshöll</p>
-            <Link to="/ingjalsholskirkja" onClick={() => handleLinkClick('ingjalsholskirkja-card')}>Nánar um sókn</Link>
-          </div>
-        </div>
-      </section>
+  
       
       <section className="quick-links">
         <h3>Flýtileiðir</h3>
