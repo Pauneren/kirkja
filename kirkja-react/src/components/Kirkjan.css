@@ -53,6 +53,23 @@
   border-radius: 8px;
   text-align: center;
   border-left: 4px solid #d4af37;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.staff-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #d4af37;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.staff-info {
+  text-align: center;
 }
 
 .staff-item h3, .board-member h3 {

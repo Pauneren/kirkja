@@ -14,10 +14,13 @@ const Kirkjan: React.FC = () => {
     <h2>Starfsfólk</h2>
     <div className="staff-grid">
     <div className="staff-item">
+    <img src={`${process.env.PUBLIC_URL}/images/aegirorn.jpg`} alt="Ægir Örn Sveinsson - prestur" className="staff-photo" />
+    <div className="staff-info">
     <h3>Ægir Örn Sveinsson</h3>
     <p className="position">Prestur - Olafskirkja - Ingjalsholskirkja</p>
     <p className="contact">Sími: (354) 772-1968</p>
     <p className="contact">Netfang: aegirorn@kirkjan.is</p>
+    </div>
     </div>
     </div>
     </section>
