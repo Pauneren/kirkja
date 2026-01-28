@@ -27,7 +27,7 @@ const Kirkjan: React.FC = () => {
     
     <section className="board-section">
     <h2>Sóknarnefndir</h2>
-    <p>Báðar sóknir hafa eigin sóknarnefnd sem fer með stjórnmál og efnahag.</p>
+    <p className="board-description">Báðar sóknir hafa eigin sóknarnefnd sem fer með stjórnmál og efnahag.</p>
     <div className="church-links">
     <Link to="/olafskirkja" className="church-link">Olafskirkja</Link>
     <Link to="/ingjalsholskirkja" className="church-link">Ingjalsholskirkja</Link>

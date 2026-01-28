@@ -48,10 +48,11 @@ const Ingjalsholskirkja: React.FC = () => {
     </section>
     
     <section className="ministries">
-    <h2>Starfsemi</h2>
-    <ul>
-    <li>Barnastarf</li>
-    <li>Unglingastarf</li>
+    <h2 className="accordion-header" onClick={toggleTonlistarstarf}>
+    Starfsemi
+    <span className={`accordion-arrow ${isTonlistarstarfOpen ? 'open' : ''}`}>▼</span>
+    </h2>
+    <ul className={`accordion-content ${isTonlistarstarfOpen ? 'open' : ''}`}>
     <li className="accordion-item">
     <div className="accordion-header" onClick={toggleTonlistarstarf}>
     Tónlistarstarf
@@ -59,9 +60,9 @@ const Ingjalsholskirkja: React.FC = () => {
     </div>
     <ul className={`accordion-content ${isTonlistarstarfOpen ? 'open' : ''}`}>
     <li>Organisti: Elena Makeeva</li>
-    <li>Kirkjuvörður: Wewlina Wasievicz</li>
     </ul>
     </li>
+    <li>Kirkjuvörður: Wewlina Wasievicz</li>
     </ul>
     </section>
     
