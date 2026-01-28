@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/kirkja/static/css/main.a2bbe042.css",
-    "main.js": "/kirkja/static/js/main.3505f139.js",
+    "main.js": "/kirkja/static/js/main.11f37027.js",
     "static/media/olafsvikurkirkja.jpg": "/kirkja/static/media/olafsvikurkirkja.0c9680cc01c71e1ff800.jpg",
     "index.html": "/kirkja/index.html",
     "main.a2bbe042.css.map": "/kirkja/static/css/main.a2bbe042.css.map",
-    "main.3505f139.js.map": "/kirkja/static/js/main.3505f139.js.map"
+    "main.11f37027.js.map": "/kirkja/static/js/main.11f37027.js.map"
   },
   "entrypoints": [
     "static/css/main.a2bbe042.css",
-    "static/js/main.3505f139.js"
+    "static/js/main.11f37027.js"
   ]
 }
