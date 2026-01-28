@@ -8,25 +8,19 @@ import Ingjalsholskirkja from './components/Ingjalsholskirkja';
 import Contact from './components/Contact';
 import Frettir from './components/Frettir';
 import Helgihald from './components/Helgihald';
-import Athafnir from './components/Athafnir';
-import Aeskulydsstarf from './components/Aeskulydsstarf';
-import Safnadarstarf from './components/Safnadarstarf';
 import Fermingar from './components/Fermingar';
 import Admin from './components/Admin';
 import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/kirkja">
       <div className="App">
         <Header />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/kirkjan" element={<Kirkjan />} />
           <Route path="/helgihald" element={<Helgihald />} />
-          <Route path="/athafnir" element={<Athafnir />} />
-          <Route path="/aeskulydsstarf" element={<Aeskulydsstarf />} />
-          <Route path="/safnadarstarf" element={<Safnadarstarf />} />
           <Route path="/fermingar" element={<Fermingar />} />
           <Route path="/frettir" element={<Frettir />} />
           <Route path="/contact" element={<Contact />} />

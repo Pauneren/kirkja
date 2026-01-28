@@ -27,9 +27,6 @@ const Header: React.FC = () => {
     { path: '/olafskirkja', label: 'Olafsvikurkirkja', id: 'olafskirkja' },
     { path: '/ingjalsholskirkja', label: 'Ingjalsholskirkja', id: 'ingjalsholskirkja' },
     { path: '/helgihald', label: 'Helgihald', id: 'helgihald' },
-    { path: '/athafnir', label: 'Athafnir', id: 'athafnir' },
-    { path: '/aeskulydsstarf', label: 'Æskulýðsstarf', id: 'aeskulydsstarf' },
-    { path: '/safnadarstarf', label: 'Safnaðarstarf', id: 'safnadarstarf' },
     { path: '/fermingar', label: 'Fermingar', id: 'fermingar' },
     { path: '/frettir', label: 'Fréttir', id: 'frettir' },
     { path: '/contact', label: 'Hafðu samband', id: 'contact' },
@@ -39,7 +36,7 @@ const Header: React.FC = () => {
     <header>
     <div className="header-content">
     <Link to="/" className="header-logo-link">
-    <img src="/images/cruz-logo.png" alt="Olafskirkja og Ingjalsholskirkja" className="logo" />
+    <img src={`${process.env.PUBLIC_URL}/images/cruz-logo.png`} alt="Olafskirkja og Ingjalsholskirkja" className="header-logo" />
     </Link>
     <h1>Olafskirkja og Ingjalsholskirkja</h1>
     </div>

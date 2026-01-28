@@ -56,12 +56,12 @@ const Homepage: React.FC = () => {
         fetch(`${API_BASE}/events`),
         fetch(`${API_BASE}/news`)
       ]);
-
+      
       if (servicesRes.ok && eventsRes.ok && newsRes.ok) {
         const servicesData = await servicesRes.json();
         const eventsData = await eventsRes.json();
         const newsData = await newsRes.json();
-
+        
         setServices(servicesData);
         setEvents(eventsData);
         setNews(newsData);
@@ -106,19 +106,19 @@ const Homepage: React.FC = () => {
   
   return (
     <main className="homepage">
-
+    
     <section className="churches">
     <h3>Sóknir</h3>
     <div className="church-grid">
     <div className="church-card">
-    <img src="/images/olafsvikurkirkja.jpg" alt="Olafskirkja" className="church-image" />
+    <img src={`${process.env.PUBLIC_URL}/images/olafsvikurkirkja.jpg`} alt="Olafskirkja" className="church-image" />
     <h4>Olafskirkja</h4>
     <p>Ólafsvík</p>
     <Link to="/olafskirkja" onClick={() => handleLinkClick('olafskirkja-card')}>Nánar um sókn</Link>
     </div>
     
     <div className="church-card">
-    <img src="/images/ingjaldsholkirkja.jpg" alt="Ingjalsholskirkja" className="church-image" />
+    <img src={`${process.env.PUBLIC_URL}/images/ingjaldsholkirkja.jpg`} alt="Ingjalsholskirkja" className="church-image" />
     <h4>Ingjalsholskirkja</h4>
     <p>Ingjalshöll</p>
     <Link to="/ingjalsholskirkja" onClick={() => handleLinkClick('ingjalsholskirkja-card')}>Nánar um sókn</Link>
@@ -133,58 +133,58 @@ const Homepage: React.FC = () => {
     <section className="dynamic-announcements">
     <h3>Fréttir og tilkynningar</h3>
     <div className="announcements-grid">
-      {loading ? (
-        <div className="announcement-card">
-          <span className="priority medium">Almennt</span>
-          <h4>Hleður fréttum...</h4>
-          <p>Sæki gögn frá bakenda...</p>
+    {loading ? (
+      <div className="announcement-card">
+      <span className="priority medium">Almennt</span>
+      <h4>Hleður fréttum...</h4>
+      <p>Sæki gögn frá bakenda...</p>
+      </div>
+    ) : news.length > 0 ? (
+      news.slice(0, 3).map((newsItem) => (
+        <div key={newsItem.id} className="announcement-card">
+        <span className={`priority ${newsItem.priority}`}>
+        {newsItem.priority === 'high' ? 'Mikilvægt' : newsItem.priority === 'medium' ? 'Almennt' : 'Lítið'}
+        </span>
+        <h4>{newsItem.title}</h4>
+        <p>{newsItem.content}</p>
         </div>
-      ) : news.length > 0 ? (
-        news.slice(0, 3).map((newsItem) => (
-          <div key={newsItem.id} className="announcement-card">
-            <span className={`priority ${newsItem.priority}`}>
-              {newsItem.priority === 'high' ? 'Mikilvægt' : newsItem.priority === 'medium' ? 'Almennt' : 'Lítið'}
-            </span>
-            <h4>{newsItem.title}</h4>
-            <p>{newsItem.content}</p>
-          </div>
-        ))
-      ) : (
-        <div className="announcement-card">
-          <span className="priority medium">Almennt</span>
-          <h4>Engar fréttir</h4>
-          <p>Engar fréttir eða tilkynningar eru tiltækar</p>
-        </div>
-      )}
+      ))
+    ) : (
+      <div className="announcement-card">
+      <span className="priority medium">Almennt</span>
+      <h4>Engar fréttir</h4>
+      <p>Engar fréttir eða tilkynningar eru tiltækar</p>
+      </div>
+    )}
     </div>
     </section>
     
     <section className="upcoming-services">
     <h3>Næstu þjónustur</h3>
     <div className="service-schedule">
-      {loading ? (
-        <div className="service-item">
-          <h4>Hleður þjónustum...</h4>
+    {loading ? (
+      <div className="service-item">
+      <h4>Hleður þjónustum...</h4>
+      </div>
+    ) : services.length > 0 ? (
+      services.slice(0, 5).map((service) => (
+        <div key={service.id} className="service-item">
+        <h4>{new Date(service.date).toLocaleDateString('is-IS', { 
+          weekday: 'long', 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric' 
+        })}</h4>
+        <p>{service.church}: {service.type} kl. {new Date(service.date).toLocaleTimeString('is-IS', { hour: '2-digit', minute: '2-digit' })}</p>
+        <p>Prestur: {service.pastor}</p>
+        {service.theme && <p>Þema: {service.theme}</p>}
         </div>
-      ) : services.length > 0 ? (
-        services.slice(0, 5).map((service) => (
-          <div key={service.id} className="service-item">
-            <h4>{new Date(service.date).toLocaleDateString('is-IS', { 
-              weekday: 'long', 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            })}</h4>
-            <p>{service.church}: {service.type} kl. {new Date(service.date).toLocaleTimeString('is-IS', { hour: '2-digit', minute: '2-digit' })}</p>
-            <p>Prestur: {service.pastor}</p>
-            {service.theme && <p>Þema: {service.theme}</p>}
-          </div>
-        ))
-      ) : (
-        <div className="service-item">
-          <h4>Engar þjónustur skráðar</h4>
-        </div>
-      )}
+      ))
+    ) : (
+      <div className="service-item">
+      <h4>Engar þjónustur skráðar</h4>
+      </div>
+    )}
     </div>
     </section>
     
@@ -192,41 +192,41 @@ const Homepage: React.FC = () => {
     <section className="dynamic-events">
     <h3>Næstu viðburðir</h3>
     <div className="events-grid">
-      {loading ? (
-        <div className="event-card">
-          <div className="event-content">
-            <h4>Hleður viðburðum...</h4>
-          </div>
+    {loading ? (
+      <div className="event-card">
+      <div className="event-content">
+      <h4>Hleður viðburðum...</h4>
+      </div>
+      </div>
+    ) : events.length > 0 ? (
+      events.slice(0, 3).map((event) => (
+        <div key={event.id} className="event-card">
+        {event.imageUrl && (
+          <img src={event.imageUrl} alt={event.title} className="event-image" />
+        )}
+        <div className="event-content">
+        <h4>{event.title}</h4>
+        <p>{event.description}</p>
+        <p><strong>Dagsetning:</strong> {new Date(event.date).toLocaleDateString('is-IS', { 
+          weekday: 'long', 
+          year: 'numeric', 
+          month: 'long', 
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })}</p>
+        <p><strong>Staðsetning:</strong> {event.location}</p>
+        <span className="event-type">{event.type}</span>
         </div>
-      ) : events.length > 0 ? (
-        events.slice(0, 3).map((event) => (
-          <div key={event.id} className="event-card">
-            {event.imageUrl && (
-              <img src={event.imageUrl} alt={event.title} className="event-image" />
-            )}
-            <div className="event-content">
-              <h4>{event.title}</h4>
-              <p>{event.description}</p>
-              <p><strong>Dagsetning:</strong> {new Date(event.date).toLocaleDateString('is-IS', { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-              })}</p>
-              <p><strong>Staðsetning:</strong> {event.location}</p>
-              <span className="event-type">{event.type}</span>
-            </div>
-          </div>
-        ))
-      ) : (
-        <div className="event-card">
-          <div className="event-content">
-            <h4>Engir viðburðir skráðir</h4>
-          </div>
         </div>
-      )}
+      ))
+    ) : (
+      <div className="event-card">
+      <div className="event-content">
+      <h4>Engir viðburðir skráðir</h4>
+      </div>
+      </div>
+    )}
     </div>
     </section>
     
@@ -235,18 +235,6 @@ const Homepage: React.FC = () => {
     <section className="quick-links">
     <h3>Flýtileiðir</h3>
     <div className="links-grid">
-    <div className="link-item">
-    <h4>Æskulýðsstarf</h4>
-    <p>Starf fyrir börn og unglinga</p>
-    <Link to="/aeskulydsstarf" onClick={() => handleLinkClick('aeskulydsstarf-link')}>Nánar</Link>
-    </div>
-    
-    <div className="link-item">
-    <h4>Safnaðarstarf</h4>
-    <p>Starf fyrir fullorðna</p>
-    <Link to="/safnadarstarf" onClick={() => handleLinkClick('safnadarstarf-link')}>Nánar</Link>
-    </div>
-    
     <div className="link-item">
     <h4>Fermingar</h4>
     <p>Upplýsingar um fermingar</p>

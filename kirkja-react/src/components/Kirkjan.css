@@ -2,7 +2,7 @@
 .kirkjan-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .intro {
@@ -12,7 +12,7 @@
 }
 
 .intro h2 {
-  color: #2c3e50;
+  color: #1e3a5f;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
@@ -34,10 +34,10 @@
 }
 
 .staff-section h2, .board-section h2 {
-  color: #2c3e50;
+  color: #1e3a5f;
   margin-bottom: 2rem;
   text-align: center;
-  border-bottom: 2px solid #3498db;
+  border-bottom: 2px solid #d4af37;
   padding-bottom: 0.5rem;
 }
 
@@ -48,20 +48,20 @@
 }
 
 .staff-item, .board-member {
-  background: #f8f9fa;
+  background: #faf8f3;
   padding: 1.5rem;
   border-radius: 8px;
   text-align: center;
-  border-left: 4px solid #3498db;
+  border-left: 4px solid #d4af37;
 }
 
 .staff-item h3, .board-member h3 {
-  color: #2c3e50;
+  color: #1e3a5f;
   margin-bottom: 0.5rem;
 }
 
 .position {
-  color: #3498db;
+  color: #d4af37;
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
@@ -70,6 +70,27 @@
   color: #666;
   font-size: 0.9rem;
   margin: 0.25rem 0;
+}
+
+.church-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.church-link {
+  background: #d4af37;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.church-link:hover {
+  background: #b8941f;
 }
 
 @media (max-width: 768px) {
@@ -84,5 +105,10 @@
   .staff-grid, .board-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  
+  .church-links {
+    flex-direction: column;
+    align-items: center;
   }
 }

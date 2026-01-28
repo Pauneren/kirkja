@@ -32,7 +32,7 @@
 }
 
 .church-hero-content h2 {
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   margin-bottom: 0.25rem;
   font-weight: 300;
 }
@@ -105,10 +105,80 @@
   font-size: 1.3rem;
 }
 
+.accordion-header {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #f8f6f1;
+  border-radius: 5px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.accordion-arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+  color: #d4af37;
+}
+
+.accordion-arrow.open {
+  transform: rotate(180deg);
+}
+
 .board-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.board-grid.open {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  margin-left: 1rem;
+}
+
+.accordion-content.open {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.accordion-item {
+  list-style: none;
+}
+
+.accordion-item .accordion-header {
+  padding: 0.75rem;
+  margin: 0.25rem 0;
+  background: #faf8f3;
+  border-left: 4px solid #d4af37;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-item .accordion-header:hover {
+  background: #f0ede6;
 }
 
 .board-member {
@@ -153,7 +223,7 @@
   }
   
   .church-hero-content h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   
   .info, .pastor, .ministries, .history, .board-members {
@@ -187,7 +257,7 @@
   }
   
   .church-hero-content h2 {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     margin-bottom: 0.25rem;
   }
   
