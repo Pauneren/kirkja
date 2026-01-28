@@ -23,7 +23,7 @@ const SEO: React.FC<SEOProps> = ({
       {/* Primary Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content="Olafskirkja, Ingjalsholskirkja, kirkja, Ólafsvík, Hellissandur, Vesturland, guðþjónusta, fermingar, sókn, kristni, kirkjuviðburðir" />
+      <meta name="keywords" content="Olafskirkja, Ingjalsholskirkja, Ólafsvikurkirkja, Ólafsvík, Olafsvik, Hellissandur, Ingjalshold, Kirkja, kirkjan, prestur, kirkja, Vesturland, guðþjónusta, fermingar, sókn, kristni, kirkjuviðburðir" />
       <meta name="author" content="Sóknirnefndir Olafskirkju og Ingjalshólskirkju" />
       <meta name="robots" content="index, follow" />
       <meta name="language" content="Icelandic" />
