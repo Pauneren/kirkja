@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from './SEO';
 import './ChurchDetail.css';
 import olafskirkjaImage from '../images/olafsvikurkirkja.jpg';
 
@@ -20,6 +21,13 @@ const Olafskirkja: React.FC = () => {
   };
   return (
     <main className="church-detail">
+    <SEO 
+    title="Olafskirkja - Sögufræg kirkja í Ólafsvík"
+    description="Olafskirkja er sögufræg kirkja í Ólafsvík á Vesturlandi. Upplýsingar um guðþjónustur, fermingar, kirkjuviðburði og sóknarstarf."
+    image="https://pauneren.github.io/kirkja/images/olafsvikurkirkja.jpg"
+    url="https://pauneren.github.io/kirkja/olafskirkja"
+    type="place"
+    />
     <section className="church-hero">
     <img src={olafskirkjaImage} alt="Olafskirkja" className="church-hero-image" />
     <div className="church-hero-content">

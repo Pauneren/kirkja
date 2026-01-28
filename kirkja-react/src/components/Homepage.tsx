@@ -111,14 +111,14 @@ const Homepage: React.FC = () => {
     <h3>Sóknir</h3>
     <div className="church-grid">
     <div className="church-card">
-    <img src={`${process.env.PUBLIC_URL}/images/olafsvikurkirkja.jpg`} alt="Olafskirkja" className="church-image" />
+    <img src={`${process.env.PUBLIC_URL}/images/olafsvikurkirkja.jpg`} alt="Olafskirkja - sögufræg kirkja í Ólafsvík á Vesturlandi" className="church-image" />
     <h4>Olafskirkja</h4>
     <p>Ólafsvík</p>
     <Link to="/olafskirkja" onClick={() => handleLinkClick('olafskirkja-card')}>Nánar um sókn</Link>
     </div>
     
     <div className="church-card">
-    <img src={`${process.env.PUBLIC_URL}/images/ingjaldsholkirkja.jpg`} alt="Ingjalsholskirkja" className="church-image" />
+    <img src={`${process.env.PUBLIC_URL}/images/ingjaldsholkirkja.jpg`} alt="Ingjalsholskirkja - sögufræg kirkja á Hellissandi á Vesturlandi" className="church-image" />
     <h4>Ingjalsholskirkja</h4>
     <p>Ingjalshöll</p>
     <Link to="/ingjalsholskirkja" onClick={() => handleLinkClick('ingjalsholskirkja-card')}>Nánar um sókn</Link>

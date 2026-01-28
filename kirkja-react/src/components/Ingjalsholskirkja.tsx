@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import SEO from './SEO';
 import './ChurchDetail.css';
 
 const Ingjalsholskirkja: React.FC = () => {
@@ -19,6 +20,13 @@ const Ingjalsholskirkja: React.FC = () => {
   };
   return (
     <main className="church-detail">
+      <SEO 
+        title="Ingjalsholskirkja - Sögufræg kirkja á Hellissandi"
+        description="Ingjalsholskirkja er sögufræg kirkja á Hellissandi á Vesturlandi. Upplýsingar um guðþjónustur, fermingar, kirkjuviðburði og sóknarstarf."
+        image="https://pauneren.github.io/kirkja/images/ingjaldsholkirkja.jpg"
+        url="https://pauneren.github.io/kirkja/ingjalsholskirkja"
+        type="place"
+      />
     <section className="church-hero">
     <img src={`${process.env.PUBLIC_URL}/images/ingjaldsholkirkja.jpg`} alt="Ingjalsholskirkja" className="church-hero-image" />
     <div className="church-hero-content">
