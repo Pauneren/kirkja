@@ -11,7 +11,7 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({ 
   title = "Olafskirkja og Ingjalsholskirkja - Kirkjur á Vesturlandi",
-  description = "Velkomin í Olafskirkju og Ingjalshólskirkju - tvær sögufrægar kirkjur á Vesturlandi. Upplýsingar um guðþjónustur, fermingar, kirkjuviðburði og sóknarstarf.",
+  description = "Kirkja Ólafsvík og kirkja Hellissandur - sögufrægar kirkjur á Snæfellsnesi. Guðþjónusta, fermingar, brúðkaup, skírn og kirkjuviðburðir. Opin fyrir ferðamenn og íbúa. Hafðu samband við prest og sókn.",
   image = "https://pauneren.github.io/kirkja/images/olafsvikurkirkja.jpg",
   url = "https://pauneren.github.io/kirkja/",
   type = "website"
@@ -23,7 +23,7 @@ const SEO: React.FC<SEOProps> = ({
       {/* Primary Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content="Olafskirkja, Ingjalsholskirkja, Ólafsvikurkirkja, Ólafsvík, Olafsvik, Hellissandur, Ingjalshold, Kirkja, kirkjan, prestur, kirkja, Vesturland, Snæfellsnes, Snæfellsness, guðþjónusta, fermingar, sókn, kristni, kirkjuviðburðir" />
+      <meta name="keywords" content="Olafskirkja, Ingjalsholskirkja, Ólafsvikurkirkja, Ólafsvík, Olafsvik, Hellissandur, Ingjalshold, Kirkja, kirkjan, prestur, kirkja, Vesturland, Snæfellsnes, Snæfellsness, guðþjónusta, fermingar, sókn, kristni, kirkjuviðburðir, kirkja Ólafsvík, kirkja Hellissandur, guðþjónusta Vesturland, sókn Ólafsvík, ferming Ólafsvík, brúðkaup kirkja Vesturland, skírn barna Ólafsvík, kirkjukór Vesturland, churches to visit Snæfellsnes, historical churches Iceland, Olafskirkja Snæfellsnes, Icelandic church tourism, kirkjuviðburðir Ólafsvík, sunnudagsguðþjónusta, kirkjan í nágrenninu, hvenær eru guðþjónustur í Ólafsvík, hvernig get ég hafa samband við kirkju, er kirkja opin í dag" />
       <meta name="author" content="Sóknirnefndir Olafskirkju og Ingjalshólskirkju" />
       <meta name="robots" content="index, follow" />
       <meta name="language" content="Icelandic" />

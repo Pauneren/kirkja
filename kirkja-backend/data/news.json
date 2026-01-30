@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1769810399414,
+    "title": "Velkomin til nýrra fréttaakerfis",
+    "church": "Both",
+    "content": "Við erum stoltir af að kynna nýtt fréttaakerfi fyrir kirkjurnar okkar. Hér getur þú fylgst með nýjustu fréttum og tilkynningum frá Olafskirkju og Ingjalsholskirkju.",
+    "priority": "high",
+    "createdAt": "2026-01-30T21:59:59.414Z"
+  },
+  {
+    "id": 1769810823253,
+    "title": "Test News from Backend",
+    "church": "Olafskirkja",
+    "content": "This is a test news item to verify the backend is working properly.",
+    "priority": "high",
+    "createdAt": "2026-01-30T22:07:03.253Z"
+  }
+]

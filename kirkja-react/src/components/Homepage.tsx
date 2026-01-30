@@ -46,10 +46,11 @@ const Homepage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   
   // API base URL
-  const API_BASE = 'http://localhost:3001/api';
+  const API_BASE = 'http://localhost:3002/api';
   
   // Fetch data from backend
   const fetchBackendData = async () => {
+    console.log('Fetching backend data from:', API_BASE);
     try {
       const [servicesRes, eventsRes, newsRes] = await Promise.all([
         fetch(`${API_BASE}/services`),
@@ -57,14 +58,32 @@ const Homepage: React.FC = () => {
         fetch(`${API_BASE}/news`)
       ]);
       
+      console.log('API Responses:', {
+        services: servicesRes.status,
+        events: eventsRes.status, 
+        news: newsRes.status
+      });
+      
       if (servicesRes.ok && eventsRes.ok && newsRes.ok) {
         const servicesData = await servicesRes.json();
         const eventsData = await eventsRes.json();
         const newsData = await newsRes.json();
         
+        console.log('Fetched data:', {
+          services: servicesData.length,
+          events: eventsData.length,
+          news: newsData.length
+        });
+        
         setServices(servicesData);
         setEvents(eventsData);
         setNews(newsData);
+      } else {
+        console.error('Some API calls failed:', {
+          services: servicesRes.statusText,
+          events: eventsRes.statusText,
+          news: newsRes.statusText
+        });
       }
     } catch (error) {
       console.error('Error fetching backend data:', error);

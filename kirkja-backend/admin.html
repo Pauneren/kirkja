@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirkja Backend Admin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #faf8f3;
+            color: #1e3a5f;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #1e3a5f;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: #d4af37;
+            font-size: 1.2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #d4af37;
+        }
+        
+        .tab {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            color: #1e3a5f;
+            cursor: pointer;
+            font-size: 1rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            color: #d4af37;
+            border-bottom-color: #d4af37;
+        }
+        
+        .tab:hover {
+            color: #d4af37;
+        }
+        
+        .content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1e3a5f;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+        }
+        
+        .btn {
+            background: #d4af37;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #b8941f;
+        }
+        
+        .btn-danger {
+            background: #dc3545;
+        }
+        
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        
+        .item-list {
+            margin-top: 2rem;
+        }
+        
+        .item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #d4af37;
+        }
+        
+        .item h3 {
+            color: #1e3a5f;
+            margin-bottom: 0.5rem;
+        }
+        
+        .item p {
+            color: #666;
+            margin: 0.25rem 0;
+        }
+        
+        .item-actions {
+            margin-top: 1rem;
+        }
+        
+        .item-actions button {
+            margin-right: 0.5rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⛪ Kirkja Backend Admin</h1>
+            <p>Manage Church Services, Events, and News</p>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('services')">Services</button>
+            <button class="tab" onclick="showTab('events')">Events</button>
+            <button class="tab" onclick="showTab('news')">News</button>
+        </div>
+        
+        <div id="status" class="status hidden"></div>
+        
+        <div class="content">
+            <!-- Services Tab -->
+            <div id="services-tab" class="tab-content">
+                <h2>Church Services</h2>
+                <form id="service-form">
+                    <div class="form-group">
+                        <label for="service-title">Title</label>
+                        <input type="text" id="service-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service-church">Church</label>
+                        <select id="service-church" required>
+                            <option value="">Select Church</option>
+                            <option value="Olafskirkja">Olafskirkja</option>
+                            <option value="Ingjalsholskirkja">Ingjalsholskirkja</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="service-date">Date</label>
+                        <input type="datetime-local" id="service-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service-description">Description</label>
+                        <textarea id="service-description" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Add Service</button>
+                </form>
+                
+                <div id="services-list" class="item-list"></div>
+            </div>
+            
+            <!-- Events Tab -->
+            <div id="events-tab" class="tab-content hidden">
+                <h2>Church Events</h2>
+                <form id="event-form">
+                    <div class="form-group">
+                        <label for="event-title">Title</label>
+                        <input type="text" id="event-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-church">Church</label>
+                        <select id="event-church" required>
+                            <option value="">Select Church</option>
+                            <option value="Olafskirkja">Olafskirkja</option>
+                            <option value="Ingjalsholskirkja">Ingjalsholskirkja</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-date">Date</label>
+                        <input type="datetime-local" id="event-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-description">Description</label>
+                        <textarea id="event-description" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Add Event</button>
+                </form>
+                
+                <div id="events-list" class="item-list"></div>
+            </div>
+            
+            <!-- News Tab -->
+            <div id="news-tab" class="tab-content hidden">
+                <h2>Church News</h2>
+                <form id="news-form">
+                    <div class="form-group">
+                        <label for="news-title">Title</label>
+                        <input type="text" id="news-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="news-church">Church</label>
+                        <select id="news-church" required>
+                            <option value="">Select Church</option>
+                            <option value="Olafskirkja">Olafskirkja</option>
+                            <option value="Ingjalsholskirkja">Ingjalsholskirkja</option>
+                            <option value="Both">Both Churches</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="news-content">Content</label>
+                        <textarea id="news-content" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Add News</button>
+                </form>
+                
+                <div id="news-list" class="item-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const API_BASE = 'http://localhost:3002/api';
+        let currentTab = 'services';
+        
+        // Tab switching
+        function showTab(tab) {
+            currentTab = tab;
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Show selected tab
+            document.getElementById(`${tab}-tab`).classList.remove('hidden');
+            
+            // Load data for the tab
+            loadData(tab);
+        }
+        
+        // Load data from API
+        async function loadData(type) {
+            try {
+                const response = await fetch(`${API_BASE}/${type}`);
+                const data = await response.json();
+                displayData(type, data);
+            } catch (error) {
+                showStatus(`Error loading ${type}: ${error.message}`, 'error');
+            }
+        }
+        
+        // Display data
+        function displayData(type, data) {
+            const listElement = document.getElementById(`${type}-list`);
+            listElement.innerHTML = '';
+            
+            data.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'item';
+                
+                let content = `<h3>${item.title}</h3>`;
+                
+                if (item.church) {
+                    content += `<p><strong>Church:</strong> ${item.church}</p>`;
+                }
+                
+                if (item.date) {
+                    content += `<p><strong>Date:</strong> ${new Date(item.date).toLocaleString()}</p>`;
+                }
+                
+                if (item.description) {
+                    content += `<p><strong>Description:</strong> ${item.description}</p>`;
+                }
+                
+                if (item.content) {
+                    content += `<p><strong>Content:</strong> ${item.content}</p>`;
+                }
+                
+                content += `
+                    <div class="item-actions">
+                        <button class="btn btn-danger" onclick="deleteItem('${type}', ${item.id})">Delete</button>
+                    </div>
+                `;
+                
+                itemDiv.innerHTML = content;
+                listElement.appendChild(itemDiv);
+            });
+        }
+        
+        // Delete item
+        async function deleteItem(type, id) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                try {
+                    const response = await fetch(`${API_BASE}/${type}/${id}`, {
+                        method: 'DELETE'
+                    });
+                    
+                    if (response.ok) {
+                        showStatus('Item deleted successfully', 'success');
+                        loadData(type);
+                    } else {
+                        throw new Error('Failed to delete item');
+                    }
+                } catch (error) {
+                    showStatus(`Error deleting item: ${error.message}`, 'error');
+                }
+            }
+        }
+        
+        // Show status message
+        function showStatus(message, type) {
+            const statusElement = document.getElementById('status');
+            statusElement.textContent = message;
+            statusElement.className = `status ${type}`;
+            statusElement.classList.remove('hidden');
+            
+            setTimeout(() => {
+                statusElement.classList.add('hidden');
+            }, 3000);
+        }
+        
+        // Form submissions
+        document.getElementById('service-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const service = {
+                title: document.getElementById('service-title').value,
+                church: document.getElementById('service-church').value,
+                date: document.getElementById('service-date').value,
+                description: document.getElementById('service-description').value
+            };
+            
+            try {
+                const response = await fetch(`${API_BASE}/services`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(service)
+                });
+                
+                if (response.ok) {
+                    showStatus('Service added successfully', 'success');
+                    document.getElementById('service-form').reset();
+                    loadData('services');
+                } else {
+                    throw new Error('Failed to add service');
+                }
+            } catch (error) {
+                showStatus(`Error adding service: ${error.message}`, 'error');
+            }
+        });
+        
+        document.getElementById('event-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const event = {
+                title: document.getElementById('event-title').value,
+                church: document.getElementById('event-church').value,
+                date: document.getElementById('event-date').value,
+                description: document.getElementById('event-description').value
+            };
+            
+            try {
+                const response = await fetch(`${API_BASE}/events`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(event)
+                });
+                
+                if (response.ok) {
+                    showStatus('Event added successfully', 'success');
+                    document.getElementById('event-form').reset();
+                    loadData('events');
+                } else {
+                    throw new Error('Failed to add event');
+                }
+            } catch (error) {
+                showStatus(`Error adding event: ${error.message}`, 'error');
+            }
+        });
+        
+        document.getElementById('news-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const news = {
+                title: document.getElementById('news-title').value,
+                church: document.getElementById('news-church').value,
+                content: document.getElementById('news-content').value
+            };
+            
+            try {
+                const response = await fetch(`${API_BASE}/news`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(news)
+                });
+                
+                if (response.ok) {
+                    showStatus('News added successfully', 'success');
+                    document.getElementById('news-form').reset();
+                    loadData('news');
+                } else {
+                    throw new Error('Failed to add news');
+                }
+            } catch (error) {
+                showStatus(`Error adding news: ${error.message}`, 'error');
+            }
+        });
+        
+        // Load initial data
+        loadData('services');
+    </script>
+</body>
+</html>

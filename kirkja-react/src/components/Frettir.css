@@ -1,0 +1,244 @@
+/* Fréttir page styles */
+.frettir-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.frettir-hero {
+  text-align: center;
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.frettir-hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.frettir-hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.frettir-content {
+  margin-top: 2rem;
+}
+
+.content-section {
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  color: #1e3a5f;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 0.5rem;
+}
+
+.news-grid,
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.news-card,
+.event-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #d4af37;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover,
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.news-header,
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.priority {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.priority.high {
+  background: #dc3545;
+  color: white;
+}
+
+.priority.medium {
+  background: #d4af37;
+  color: white;
+}
+
+.priority.low {
+  background: #6c757d;
+  color: white;
+}
+
+.church,
+.event-location {
+  background: #1e3a5f;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.event-type {
+  background: #d4af37;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.news-card h3,
+.event-card h3 {
+  color: #1e3a5f;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.news-content,
+.event-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.news-footer,
+.event-footer {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  margin-top: auto;
+}
+
+.date,
+.event-date {
+  color: #999;
+  font-style: italic;
+}
+
+.loading-state,
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.loading-state .news-card,
+.empty-state .news-card,
+.empty-state .event-card {
+  text-align: center;
+  border-left-color: #6c757d;
+  max-width: 400px;
+}
+
+.loading-state h4,
+.empty-state h3 {
+  color: #1e3a5f;
+  margin-bottom: 1rem;
+}
+
+.loading-state p,
+.empty-state p {
+  color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .frettir-container {
+    padding: 1rem;
+  }
+  
+  .frettir-hero {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .frettir-hero h2 {
+    font-size: 2rem;
+  }
+  
+  .frettir-hero p {
+    font-size: 1rem;
+  }
+  
+  .news-grid,
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .news-card,
+  .event-card {
+    padding: 1.5rem;
+  }
+  
+  .news-header,
+  .event-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .news-card h3,
+  .event-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .frettir-hero h2 {
+    font-size: 1.8rem;
+  }
+  
+  .news-card,
+  .event-card {
+    padding: 1rem;
+  }
+  
+  .priority,
+  .church,
+  .event-type,
+  .event-location {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+}

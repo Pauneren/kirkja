@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1769811536565,
+    "title": "Sunnudagsguðþjónusta",
+    "church": "Olafskirkja",
+    "date": "2024-02-04T11:00:00Z",
+    "type": "Sunnudagsguðþjónusta",
+    "pastor": "Ægir Örn Sveinsson",
+    "theme": "Ást og næstun",
+    "createdAt": "2026-01-30T22:18:56.565Z"
+  },
+  {
+    "id": 1769811549183,
+    "title": "Miðvikudagsmessa",
+    "church": "Ingjalsholskirkja",
+    "date": "2024-02-07T18:00:00Z",
+    "type": "Miðvikudagsmessa",
+    "pastor": "Ægir Örn Sveinsson",
+    "theme": "Bæn og íhugun",
+    "createdAt": "2026-01-30T22:19:09.183Z"
+  }
+]

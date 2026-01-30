@@ -1,12 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SEO from './SEO';
 import './ChurchDetail.css';
 import olafskirkjaImage from '../images/olafsvikurkirkja.jpg';
+
+interface Service {
+  id: number;
+  title: string;
+  church: string;
+  date: string;
+  type: string;
+  pastor: string;
+  theme: string;
+  createdAt: string;
+}
 
 const Olafskirkja: React.FC = () => {
   const [isSoknarnefndOpen, setIsSoknarnefndOpen] = useState(false);
   const [isVaramennOpen, setIsVaramennOpen] = useState(false);
   const [isTonlistarstarfOpen, setIsTonlistarstarfOpen] = useState(false);
+  const [services, setServices] = useState<Service[]>([]);
+  const [loading, setLoading] = useState(true);
+  const API_BASE = 'http://localhost:3002/api';
   
   const toggleSoknarnefnd = () => {
     setIsSoknarnefndOpen(!isSoknarnefndOpen);
@@ -19,6 +33,30 @@ const Olafskirkja: React.FC = () => {
   const toggleTonlistarstarf = () => {
     setIsTonlistarstarfOpen(!isTonlistarstarfOpen);
   };
+
+  const fetchServices = async () => {
+    try {
+      const response = await fetch(`${API_BASE}/services`);
+      if (response.ok) {
+        const servicesData = await response.json();
+        // Filter services for this church only
+        const olafskirkjaServices = servicesData.filter((service: Service) => 
+          service.church === 'Olafskirkja' || service.church === 'Ólafsvíkurkirkja'
+        );
+        setServices(olafskirkjaServices.sort((a: Service, b: Service) => 
+          new Date(a.date).getTime() - new Date(b.date).getTime()
+        ));
+      }
+    } catch (error) {
+      console.error('Error fetching services:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchServices();
+  }, []);
   return (
     <main className="church-detail">
     <SEO 
