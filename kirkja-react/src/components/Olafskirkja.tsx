@@ -20,7 +20,7 @@ const Olafskirkja: React.FC = () => {
   const [isTonlistarstarfOpen, setIsTonlistarstarfOpen] = useState(false);
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
-  const API_BASE = 'http://localhost:3002/api';
+  const API_BASE = 'https://kirkja-react.vercel.app/api';
   
   const toggleSoknarnefnd = () => {
     setIsSoknarnefndOpen(!isSoknarnefndOpen);

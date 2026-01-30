@@ -25,7 +25,7 @@ const Frettir: React.FC = () => {
   const [news, setNews] = useState<News[]>([]);
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
-  const API_BASE = 'http://localhost:3002/api';
+  const API_BASE = 'https://kirkja-react.vercel.app/api';
 
   const fetchData = async () => {
     try {

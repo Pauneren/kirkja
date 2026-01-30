@@ -46,7 +46,7 @@ const Homepage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   
   // API base URL
-  const API_BASE = 'http://localhost:3002/api';
+  const API_BASE = 'https://kirkja-react.vercel.app/api';
   
   // Fetch data from backend
   const fetchBackendData = async () => {
